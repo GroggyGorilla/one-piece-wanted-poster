@@ -85,10 +85,14 @@ class App extends HTMLElement {
             'bounty-spacing': value.toString()
           })
           break
+        case 'footerTitle':
+          this.#setWantedPosterAttributes({ 'footer-title': value.toString() })
+          break
+        case 'footerText':
+          this.#setWantedPosterAttributes({ 'footer-text': value.toString() })
+          break
         case 'name':
         case 'bounty':
-        case 'footerTitle':
-        case 'footerText':
         case 'shadow':
         case 'filter':
           this.#setWantedPosterAttributes({ [key]: value.toString() })
