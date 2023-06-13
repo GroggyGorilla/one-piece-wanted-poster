@@ -77,6 +77,8 @@ class WantedPoster extends HTMLElement {
     this.#bounty = new Bounty(ctx)
     this.#footerTitle = new FooterTitle(ctx)
     this.#footerText = new FooterText(ctx)
+    // this.#footerTitle.align = 'left'
+    // this.#footerText.align = 'left'
     this.#photoResizer = new PhotoResizer(ctx, this.#photo)
 
     this.#resizeObserver = new ResizeObserver(() => {

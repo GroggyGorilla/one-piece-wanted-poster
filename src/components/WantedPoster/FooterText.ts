@@ -18,6 +18,7 @@ class FooterText extends Text {
     // characters which is not english alphabet, so here we need to calculate the actual height
     // and scale it before rendering
     this.ctx.font = `600 ${this.fontSize}px 'Vertiky'`
+    this.ctx.textAlign = 'left'
     const actualHeight = this.getTextActualHeight(this.formattedText)
     // const scale = this.height / actualHeight
     const offsetY = (actualHeight - this.height) / 2

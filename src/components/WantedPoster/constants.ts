@@ -7,8 +7,8 @@ export const ONE_PIECE_WANTED_IMAGE: WantedImageInfo = {
   bellyImageUrl: bellySignImageUrl,
   photoPosition: { x: 74, y: 252, width: 638, height: 484 },
   namePosition: { x: 87, y: 826, width: 586, height: 114 },
-  footerTitlePosition: { x: 87, y: 1026, width: 586, height: 10 },
-  footerTextPosition: { x: 87, y: 1036, width: 586, height: 100 },
+  footerTitlePosition: { x: 87, y: 1026, width: 586, height: 26 },
+  footerTextPosition: { x: 87, y: 1036, width: 586, height: 24 },
   bountyInfo: {
     x: 82,
     y: 958,
