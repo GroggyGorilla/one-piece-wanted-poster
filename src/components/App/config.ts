@@ -13,6 +13,9 @@ export const WARCRIMINAL_POSTER = {
   bounty: 'War Criminal',
   footerTitle: '',
   footerText: '',
+  footerText2: '',
+  footerText3: '',
+  footerText4: '',
   nameSpacing: 0,
   bountySpacing: 1,
   photoUrls: [

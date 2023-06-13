@@ -91,6 +91,15 @@ class App extends HTMLElement {
         case 'footerText':
           this.#setWantedPosterAttributes({ 'footer-text': value.toString() })
           break
+        case 'footerText2':
+          this.#setWantedPosterAttributes({ 'footer-text-two': value.toString() })
+          break
+        case 'footerText3':
+          this.#setWantedPosterAttributes({ 'footer-text-three': value.toString() })
+          break
+        case 'footerText4':
+          this.#setWantedPosterAttributes({ 'footer-text-four': value.toString() })
+          break
         case 'name':
         case 'bounty':
         case 'shadow':
@@ -184,6 +193,9 @@ class App extends HTMLElement {
     addListener('bounty', this.#storeListener)
     addListener('footerTitle', this.#storeListener)
     addListener('footerText', this.#storeListener)
+    addListener('footerText2', this.#storeListener)
+    addListener('footerText3', this.#storeListener)
+    addListener('footerText4', this.#storeListener)
     addListener('nameSpacing', this.#storeListener)
     addListener('bountySpacing', this.#storeListener)
     addListener('shadow', this.#storeListener)
@@ -290,6 +302,9 @@ class App extends HTMLElement {
     removeListener('name', this.#storeListener)
     removeListener('bounty', this.#storeListener)
     removeListener('footerText', this.#storeListener)
+    removeListener('footerText2', this.#storeListener)
+    removeListener('footerText3', this.#storeListener)
+    removeListener('footerText4', this.#storeListener)
     removeListener('footerTitle', this.#storeListener)
     removeListener('shadow', this.#storeListener)
     removeListener('filter', this.#storeListener)

@@ -19,6 +19,9 @@ const ATTRIBUTES = [
   'bounty',
   'footer-title',
   'footer-text',
+  'footer-text-two',
+  'footer-text-three',
+  'footer-text-four',
   'name-spacing',
   'bounty-spacing',
   'photo-url',
@@ -42,6 +45,9 @@ class WantedPoster extends HTMLElement {
   #bounty: Bounty
   #footerTitle: FooterTitle
   #footerText: FooterText
+  #footerText2: FooterText
+  #footerText3: FooterText
+  #footerText4: FooterText
   #wantedImage: WantedImage
   #status: 'init' | 'loading' | 'success' | 'error'
 
@@ -77,6 +83,9 @@ class WantedPoster extends HTMLElement {
     this.#bounty = new Bounty(ctx)
     this.#footerTitle = new FooterTitle(ctx)
     this.#footerText = new FooterText(ctx)
+    this.#footerText2 = new FooterText(ctx)
+    this.#footerText3 = new FooterText(ctx)
+    this.#footerText4 = new FooterText(ctx)
     // this.#footerTitle.align = 'left'
     // this.#footerText.align = 'left'
     this.#photoResizer = new PhotoResizer(ctx, this.#photo)
@@ -124,6 +133,9 @@ class WantedPoster extends HTMLElement {
       )
       this.#footerTitle.setPosition(wantedImageInfo.footerTitlePosition)
       this.#footerText.setPosition(wantedImageInfo.footerTextPosition)
+      this.#footerText2.setPosition(wantedImageInfo.footerText2Position)
+      this.#footerText3.setPosition(wantedImageInfo.footerText3Position)
+      this.#footerText4.setPosition(wantedImageInfo.footerText4Position)
 
       await this.#bounty.loadBellyImage(ONE_PIECE_WANTED_IMAGE.bellyImageUrl)
       await this.#photo.init(
@@ -141,6 +153,9 @@ class WantedPoster extends HTMLElement {
     this.#bounty.text = this.getAttribute('bounty') ?? ''
     this.#footerTitle.text = this.getAttribute('footer-title') ?? ''
     this.#footerText.text = this.getAttribute('footer-text') ?? ''
+    this.#footerText2.text = this.getAttribute('footer-text-two') ?? ''
+    this.#footerText3.text = this.getAttribute('footer-text-three') ?? ''
+    this.#footerText4.text = this.getAttribute('footer-text-four') ?? ''
     this.#name.spacing = parseInt(this.getAttribute('name-spacing') ?? '0') || 0
     this.#bounty.spacing =
       parseInt(this.getAttribute('bounty-spacing') ?? '0') || 0
@@ -187,6 +202,18 @@ class WantedPoster extends HTMLElement {
 
       case 'footer-text':
         this.#footerText.text = newValue
+        break
+
+      case 'footer-text-two':
+        this.#footerText2.text = newValue
+        break
+
+      case 'footer-text-three':
+        this.#footerText3.text = newValue
+        break
+
+      case 'footer-text-four':
+        this.#footerText4.text = newValue
         break
 
       case 'name-spacing':
@@ -248,6 +275,9 @@ class WantedPoster extends HTMLElement {
     const bounty = new Bounty(ctx)
     const footerTitle = new FooterTitle(ctx)
     const footerText = new FooterText(ctx)
+    const footerText2 = new FooterText(ctx)
+    const footerText3 = new FooterText(ctx)
+    const footerText4 = new FooterText(ctx)
 
     const image = await wantedImage.loadImage()
 
@@ -265,11 +295,17 @@ class WantedPoster extends HTMLElement {
     name.setPosition(wantedImageInfo.namePosition)
     footerTitle.setPosition(wantedImageInfo.footerTitlePosition)
     footerText.setPosition(wantedImageInfo.footerTextPosition)
+    footerText2.setPosition(wantedImageInfo.footerText2Position)
+    footerText3.setPosition(wantedImageInfo.footerText3Position)
+    footerText4.setPosition(wantedImageInfo.footerText4Position)
     bounty.setBountyInfo(wantedImageInfo.bountyInfo, 1)
     name.text = this.getAttribute('name') ?? ''
     bounty.text = this.getAttribute('bounty') ?? ''
     footerTitle.text = this.getAttribute('footer-title') ?? ''
     footerText.text = this.getAttribute('footer-text') ?? ''
+    footerText2.text = this.getAttribute('footer-text-two') ?? ''
+    footerText3.text = this.getAttribute('footer-text-three') ?? ''
+    footerText4.text = this.getAttribute('footer-text-four') ?? ''
     name.spacing = parseInt(this.getAttribute('name-spacing') ?? '0') || 0
     bounty.spacing = parseInt(this.getAttribute('bounty-spacing') ?? '0') || 0
 
@@ -295,6 +331,9 @@ class WantedPoster extends HTMLElement {
     name.render()
     footerTitle.render()
     footerText.render()
+    footerText2.render()
+    footerText3.render()
+    footerText4.render()
 
     let url = ''
     try {
@@ -359,6 +398,9 @@ class WantedPoster extends HTMLElement {
     )
     this.#footerTitle.setPosition(wantedImageInfo.footerTitlePosition)
     this.#footerText.setPosition(wantedImageInfo.footerTextPosition)
+    this.#footerText2.setPosition(wantedImageInfo.footerText2Position)
+    this.#footerText3.setPosition(wantedImageInfo.footerText3Position)
+    this.#footerText4.setPosition(wantedImageInfo.footerText4Position)
 
     this.#photo.setBoundary(
       wantedImageInfo.photoPosition,
@@ -376,6 +418,9 @@ class WantedPoster extends HTMLElement {
     this.#name.render()
     this.#footerTitle.render()
     this.#footerText.render()
+    this.#footerText2.render()
+    this.#footerText3.render()
+    this.#footerText4.render()
     this.#photoResizer.render()
 
     requestAnimationFrame(this.#render.bind(this))

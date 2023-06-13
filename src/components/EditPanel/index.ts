@@ -12,6 +12,9 @@ class EditPanel extends HTMLElement {
   #bountyInput: HTMLInputElement
   #footerTitleInput: HTMLInputElement
   #footerTextInput: HTMLInputElement
+  #footerText2Input: HTMLInputElement
+  #footerText3Input: HTMLInputElement
+  #footerText4Input: HTMLInputElement
 
   #nameSpacingSlider: HTMLInputElement
   #bountySpacingSlider: HTMLInputElement
@@ -44,6 +47,9 @@ class EditPanel extends HTMLElement {
       shadowRoot.querySelector<HTMLInputElement>('#bountyInput')!
     this.#footerTitleInput = shadowRoot.querySelector<HTMLInputElement>('#footerTitleInput')!
     this.#footerTextInput = shadowRoot.querySelector<HTMLInputElement>('#footerTextInput')!
+    this.#footerText2Input = shadowRoot.querySelector<HTMLInputElement>('#footerText2Input')!
+    this.#footerText3Input = shadowRoot.querySelector<HTMLInputElement>('#footerText3Input')!
+    this.#footerText4Input = shadowRoot.querySelector<HTMLInputElement>('#footerText4Input')!
 
     this.#nameSpacingSlider =
       shadowRoot.querySelector<HTMLInputElement>('#nameSpacingSlider')!
@@ -86,6 +92,15 @@ class EditPanel extends HTMLElement {
           break
         case 'footerText':
           this.#footerTextInput.value = value
+          break
+        case 'footerText2':
+          this.#footerText2Input.value = value
+          break
+        case 'footerText3':
+          this.#footerText3Input.value = value
+          break
+        case 'footerText4':
+          this.#footerText4Input.value = value
           break
         case 'nameSpacing':
           this.#nameSpacingSlider.value = value
@@ -140,6 +155,9 @@ class EditPanel extends HTMLElement {
     addListener('bounty', this.#storeListener)
     addListener('footerTitle', this.#storeListener)
     addListener('footerText', this.#storeListener)
+    addListener('footerText2', this.#storeListener)
+    addListener('footerText3', this.#storeListener)
+    addListener('footerText4', this.#storeListener)
     addListener('nameSpacing', this.#storeListener)
     addListener('bountySpacing', this.#storeListener)
     addListener('shadow', this.#storeListener)
@@ -156,6 +174,9 @@ class EditPanel extends HTMLElement {
 
     this.#footerTitleInput.value = store.footerTitle
     this.#footerTextInput.value = store.footerText
+    this.#footerText2Input.value = store.footerText2
+    this.#footerText3Input.value = store.footerText3
+    this.#footerText4Input.value = store.footerText4
 
     this.#nameSpacingSlider.value = store.nameSpacing.toString()
     this.#bountySpacingSlider.value = store.bountySpacing.toString()
@@ -184,6 +205,18 @@ class EditPanel extends HTMLElement {
     this.#footerTextInput.addEventListener(
       'input',
       () => (store.footerText = this.#footerTextInput.value)
+    )
+    this.#footerText2Input.addEventListener(
+      'input',
+      () => (store.footerText2 = this.#footerText2Input.value)
+    )
+    this.#footerText3Input.addEventListener(
+      'input',
+      () => (store.footerText3 = this.#footerText3Input.value)
+    )
+    this.#footerText4Input.addEventListener(
+      'input',
+      () => (store.footerText4 = this.#footerText4Input.value)
     )
 
     this.#nameSpacingSlider.addEventListener(
@@ -239,6 +272,9 @@ class EditPanel extends HTMLElement {
     removeListener('bounty', this.#storeListener)
     removeListener('footerTitle', this.#storeListener)
     removeListener('footerText', this.#storeListener)
+    removeListener('footerText2', this.#storeListener)
+    removeListener('footerText3', this.#storeListener)
+    removeListener('footerText4', this.#storeListener)
     removeListener('shadow', this.#storeListener)
     removeListener('blur', this.#storeListener)
     removeListener('saturate', this.#storeListener)

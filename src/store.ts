@@ -14,6 +14,9 @@ export interface AppState extends FilterState {
   bounty: string | number
   footerTitle: string
   footerText: string
+  footerText2: string
+  footerText3: string
+  footerText4: string
   filter: string
   shadow: number
   nameSpacing: number
@@ -36,6 +39,9 @@ const DEFAULT_STATE: AppState = {
   bounty: '',
   footerTitle: '',
   footerText: '',
+  footerText2: '',
+  footerText3: '',
+  footerText4: '',
   nameSpacing: 0,
   bountySpacing: 1,
   filter: '',

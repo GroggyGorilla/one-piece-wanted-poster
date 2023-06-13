@@ -27,6 +27,9 @@ export type WantedImageInfo = {
   bountyInfo: BountyInfo
   footerTitlePosition: Position
   footerTextPosition: Position
+  footerText2Position: Position
+  footerText3Position: Position
+  footerText4Position: Position
   // The wanted image has irregularly transparent edges, the boundaryOffset is used
   // to prevent photo to be rendered on thease parts.
   boundaryOffset: {
