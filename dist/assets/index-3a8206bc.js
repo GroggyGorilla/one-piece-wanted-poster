@@ -59,7 +59,7 @@ var rs=Object.defineProperty;var as=(i,o,t)=>o in i?rs(i,o,{enumerable:!0,config
     <input id="nameInput" class="text-input" placeholder="Name" />\r
     <input id="bountyInput" class="text-input" placeholder="Bounty" />\r
     \r
-    <input id="footerTitleInput" class="text-input posterFooter" placeholder="Epithet and Name" />\r
+    <input id="footerTitleInput" class="text-input posterFooter" placeholder="Epithet and Name 2" />\r
     <input id="footerTextInput" class="text-input posterFooter" placeholder="List of Crimes" />\r
 \r
     <div class="slider">\r
