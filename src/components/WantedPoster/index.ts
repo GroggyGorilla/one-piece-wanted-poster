@@ -7,6 +7,8 @@ import type { PosterCanvasElement, PosterRenderingContext2D } from './types'
 
 import Bounty from './Bounty'
 import Name from './Name'
+import FooterTitle from './FooterTitle'
+import FooterText from './FooterText'
 import Photo from './Photo'
 import PhotoResizer from './PhotoResizer'
 import WantedImage from './WantedImage'
@@ -15,6 +17,8 @@ const TAG_NAME = 'wanted-poster'
 const ATTRIBUTES = [
   'name',
   'bounty',
+  'footerTitle',
+  'footerText',
   'name-spacing',
   'bounty-spacing',
   'photo-url',
@@ -36,6 +40,8 @@ class WantedPoster extends HTMLElement {
   #photoResizer: PhotoResizer
   #name: Name
   #bounty: Bounty
+  #footerTitle: FooterTitle
+  #footerText: FooterText
   #wantedImage: WantedImage
   #status: 'init' | 'loading' | 'success' | 'error'
 
@@ -69,6 +75,8 @@ class WantedPoster extends HTMLElement {
     this.#photo = new Photo(ctx)
     this.#name = new Name(ctx)
     this.#bounty = new Bounty(ctx)
+    this.#footerTitle = new FooterTitle(ctx)
+    this.#footerText = new FooterText(ctx)
     this.#photoResizer = new PhotoResizer(ctx, this.#photo)
 
     this.#resizeObserver = new ResizeObserver(() => {
@@ -112,6 +120,8 @@ class WantedPoster extends HTMLElement {
         wantedImageInfo.bountyInfo,
         this.#wantedImage.imageScale
       )
+      this.#footerTitle.setPosition(wantedImageInfo.footerTitlePosition)
+      this.#footerText.setPosition(wantedImageInfo.footerTextPosition)
 
       await this.#bounty.loadBellyImage(ONE_PIECE_WANTED_IMAGE.bellyImageUrl)
       await this.#photo.init(
@@ -127,6 +137,8 @@ class WantedPoster extends HTMLElement {
 
     this.#name.text = this.getAttribute('name') ?? ''
     this.#bounty.text = this.getAttribute('bounty') ?? ''
+    this.#footerTitle.text = this.getAttribute('footerTitle') ?? ''
+    this.#footerText.text = this.getAttribute('footerText') ?? ''
     this.#name.spacing = parseInt(this.getAttribute('name-spacing') ?? '0') || 0
     this.#bounty.spacing =
       parseInt(this.getAttribute('bounty-spacing') ?? '0') || 0
@@ -165,6 +177,14 @@ class WantedPoster extends HTMLElement {
 
       case 'bounty':
         this.#bounty.text = newValue
+        break
+      
+      case 'footerTitle':
+        this.#footerTitle.text = newValue
+        break
+
+      case 'footerText':
+        this.#footerText.text = newValue
         break
 
       case 'name-spacing':
@@ -224,6 +244,8 @@ class WantedPoster extends HTMLElement {
     const photo = new Photo(ctx)
     const name = new Name(ctx)
     const bounty = new Bounty(ctx)
+    const footerTitle = new FooterTitle(ctx)
+    const footerText = new FooterText(ctx)
 
     const image = await wantedImage.loadImage()
 
@@ -239,9 +261,13 @@ class WantedPoster extends HTMLElement {
 
     await bounty.loadBellyImage(wantedImageInfo.bellyImageUrl)
     name.setPosition(wantedImageInfo.namePosition)
+    footerTitle.setPosition(wantedImageInfo.footerTitlePosition)
+    footerText.setPosition(wantedImageInfo.footerTextPosition)
     bounty.setBountyInfo(wantedImageInfo.bountyInfo, 1)
     name.text = this.getAttribute('name') ?? ''
     bounty.text = this.getAttribute('bounty') ?? ''
+    footerTitle.text = this.getAttribute('footerTitle') ?? ''
+    footerText.text = this.getAttribute('footerText') ?? ''
     name.spacing = parseInt(this.getAttribute('name-spacing') ?? '0') || 0
     bounty.spacing = parseInt(this.getAttribute('bounty-spacing') ?? '0') || 0
 
@@ -265,6 +291,8 @@ class WantedPoster extends HTMLElement {
     wantedImage.render()
     bounty.render()
     name.render()
+    footerTitle.render()
+    footerText.render()
 
     let url = ''
     try {
@@ -327,6 +355,8 @@ class WantedPoster extends HTMLElement {
       wantedImageInfo.bountyInfo,
       this.#wantedImage.imageScale
     )
+    this.#footerTitle.setPosition(wantedImageInfo.footerTitlePosition)
+    this.#footerText.setPosition(wantedImageInfo.footerTextPosition)
 
     this.#photo.setBoundary(
       wantedImageInfo.photoPosition,
@@ -342,6 +372,8 @@ class WantedPoster extends HTMLElement {
     this.#wantedImage.render()
     this.#bounty.render()
     this.#name.render()
+    this.#footerTitle.render()
+    this.#footerText.render()
     this.#photoResizer.render()
 
     requestAnimationFrame(this.#render.bind(this))

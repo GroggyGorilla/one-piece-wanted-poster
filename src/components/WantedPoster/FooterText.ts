@@ -1,7 +1,7 @@
 import Text from './Text'
 import { Position } from './types'
 
-class FooterTitle extends Text {
+class FooterText extends Text {
   // This is scale constant for specific font. It should be revised whenever font changes.
   #fontSizeScale = 1
 
@@ -32,4 +32,4 @@ class FooterTitle extends Text {
   }
 }
 
-export default FooterTitle
+export default FooterText
