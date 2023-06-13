@@ -19,11 +19,11 @@ class FooterTitle extends Text {
     // and scale it before rendering
     this.ctx.font = `600 ${this.fontSize}px 'Vertiky'`
     const actualHeight = this.getTextActualHeight(this.formattedText)
-    const scale = this.height / actualHeight
+    // const scale = this.height / actualHeight
     const offsetY = (actualHeight - this.height) / 2
-    this.ctx.font = `700 ${Math.floor(
-      this.fontSize * scale
-    )}px 'Scheherazade New', serif`
+    // this.ctx.font = `700 ${Math.floor(
+    //   this.fontSize * scale
+    // )}px 'Scheherazade New', serif`
 
     const x = this.x + this.width / 2
     const y = this.y + offsetY

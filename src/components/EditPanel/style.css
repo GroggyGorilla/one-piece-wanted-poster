@@ -145,13 +145,13 @@
 }
 
 .text-input.posterFooter {
-  text-align: left;
-  line-height: 0.8rem;
-  font-size: 0.5rem;
+  text-align: left !important;
+  line-height: 0.8rem !important;
+  font-size: 0.5rem !important;
 }
 
 .text-input.posterFooter::placeholder {
-  line-height: 0.8rem;
+  line-height: 0.8rem !important;
 }
 
 .slider {

@@ -82,10 +82,10 @@ class EditPanel extends HTMLElement {
           this.#bountyInput.value = value
           break
         case 'footerTitle':
-          this.#nameInput.value = value
+          this.#footerTitleInput.value = value
           break
         case 'footerText':
-          this.#bountyInput.value = value
+          this.#footerTextInput.value = value
           break
         case 'nameSpacing':
           this.#nameSpacingSlider.value = value
