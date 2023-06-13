@@ -118,6 +118,8 @@ class WantedImage {
       bellyImageUrl,
       photoPosition,
       namePosition,
+      footerTitlePosition,
+      footerTextPosition,
       bountyInfo,
       boundaryOffset
     } = this.#wantedImageInfo
@@ -143,6 +145,8 @@ class WantedImage {
       bellyImageUrl,
       photoPosition: calculatePosition(photoPosition),
       namePosition: calculatePosition(namePosition),
+      footerTitlePosition: calculatePosition(footerTitlePosition),
+      footerTextPosition: calculatePosition(footerTextPosition),
       bountyInfo: newBountyInfo,
       boundaryOffset: {
         left: boundaryOffset.left * scale + padding,
