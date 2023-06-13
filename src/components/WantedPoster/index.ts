@@ -17,8 +17,8 @@ const TAG_NAME = 'wanted-poster'
 const ATTRIBUTES = [
   'name',
   'bounty',
-  'footerTitle',
-  'footerText',
+  'footer-title',
+  'footer-text',
   'name-spacing',
   'bounty-spacing',
   'photo-url',
@@ -137,8 +137,8 @@ class WantedPoster extends HTMLElement {
 
     this.#name.text = this.getAttribute('name') ?? ''
     this.#bounty.text = this.getAttribute('bounty') ?? ''
-    this.#footerTitle.text = this.getAttribute('footerTitle') ?? ''
-    this.#footerText.text = this.getAttribute('footerText') ?? ''
+    this.#footerTitle.text = this.getAttribute('footer-title') ?? ''
+    this.#footerText.text = this.getAttribute('footer-text') ?? ''
     this.#name.spacing = parseInt(this.getAttribute('name-spacing') ?? '0') || 0
     this.#bounty.spacing =
       parseInt(this.getAttribute('bounty-spacing') ?? '0') || 0
@@ -179,11 +179,11 @@ class WantedPoster extends HTMLElement {
         this.#bounty.text = newValue
         break
       
-      case 'footerTitle':
+      case 'footer-title':
         this.#footerTitle.text = newValue
         break
 
-      case 'footerText':
+      case 'footer-text':
         this.#footerText.text = newValue
         break
 
@@ -266,8 +266,8 @@ class WantedPoster extends HTMLElement {
     bounty.setBountyInfo(wantedImageInfo.bountyInfo, 1)
     name.text = this.getAttribute('name') ?? ''
     bounty.text = this.getAttribute('bounty') ?? ''
-    footerTitle.text = this.getAttribute('footerTitle') ?? ''
-    footerText.text = this.getAttribute('footerText') ?? ''
+    footerTitle.text = this.getAttribute('footer-title') ?? ''
+    footerText.text = this.getAttribute('footer-text') ?? ''
     name.spacing = parseInt(this.getAttribute('name-spacing') ?? '0') || 0
     bounty.spacing = parseInt(this.getAttribute('bounty-spacing') ?? '0') || 0
 
