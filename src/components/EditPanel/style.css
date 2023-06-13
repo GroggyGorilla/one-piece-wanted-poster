@@ -144,6 +144,16 @@
   text-shadow: none;
 }
 
+.text-input.posterFooter {
+  text-align: left;
+  line-height: 0.8rem;
+  font-size: 0.5rem;
+}
+
+.text-input.posterFooter::placeholder {
+  line-height: 0.8rem;
+}
+
 .slider {
   display: flex;
   flex-direction: column;
