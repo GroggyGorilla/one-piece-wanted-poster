@@ -23,7 +23,6 @@ class App extends HTMLElement {
   #editButton: WantedButton
   #importButton: WantedButton
   #exportButton: WantedButton
-  #criminalButton: HTMLButtonElement
   #tipsButton: HTMLButtonElement
 
   #carouselIntervalId: number = 0
@@ -66,8 +65,6 @@ class App extends HTMLElement {
       this.#root.querySelector<WantedButton>('#importButton')!
     this.#exportButton =
       this.#root.querySelector<WantedButton>('#exportButton')!
-    this.#criminalButton =
-      this.#root.querySelector<HTMLButtonElement>('#criminalButton')!
     this.#tipsButton =
       this.#root.querySelector<HTMLButtonElement>('#tipsButton')!
 
@@ -117,15 +114,6 @@ class App extends HTMLElement {
 
       setTimeout(() => loadingOverlay.remove(), 1000)
 
-      if (location.hash === WARCRIMINAL_HASH) {
-        this.#criminalButton.classList.add('criminal--visible')
-        return
-      }
-
-      setTimeout(
-        () => this.#criminalButton.classList.add('criminal--visible'),
-        10000
-      )
     }, 200)
   }
 
@@ -148,7 +136,6 @@ class App extends HTMLElement {
 
     this.classList.toggle('warcriminal')
     overlay.classList.toggle('blood-overlay--visible')
-    this.#criminalButton.classList.toggle('criminal--stamp')
     this.#tipsButton.classList.toggle('tips-button--hidden')
     this.#root
       .querySelector<HTMLDivElement>('.button-container')
@@ -282,11 +269,6 @@ class App extends HTMLElement {
       } finally {
         this.#exportButton.loading = false
       }
-    })
-
-    this.#criminalButton.addEventListener('click', () => {
-      const isEnabled = location.hash === WARCRIMINAL_HASH
-      location.hash = isEnabled ? '' : WARCRIMINAL_HASH
     })
 
     this.#tipsButton.addEventListener('click', () => {
