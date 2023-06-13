@@ -10,6 +10,8 @@ template.innerHTML = templateContent
 class EditPanel extends HTMLElement {
   #nameInput: HTMLInputElement
   #bountyInput: HTMLInputElement
+  #footerTitleInput: HTMLInputElement
+  #footerTextInput: HTMLInputElement
 
   #nameSpacingSlider: HTMLInputElement
   #bountySpacingSlider: HTMLInputElement
@@ -40,6 +42,8 @@ class EditPanel extends HTMLElement {
     this.#nameInput = shadowRoot.querySelector<HTMLInputElement>('#nameInput')!
     this.#bountyInput =
       shadowRoot.querySelector<HTMLInputElement>('#bountyInput')!
+    this.#footerTitleInput = shadowRoot.querySelector<HTMLInputElement>('#footerTitleInput')!
+    this.#footerTextInput = shadowRoot.querySelector<HTMLInputElement>('#footerTextInput')!
 
     this.#nameSpacingSlider =
       shadowRoot.querySelector<HTMLInputElement>('#nameSpacingSlider')!
@@ -75,6 +79,12 @@ class EditPanel extends HTMLElement {
           this.#nameInput.value = value
           break
         case 'bounty':
+          this.#bountyInput.value = value
+          break
+        case 'footerTitle':
+          this.#nameInput.value = value
+          break
+        case 'footerText':
           this.#bountyInput.value = value
           break
         case 'nameSpacing':
@@ -128,6 +138,8 @@ class EditPanel extends HTMLElement {
 
     addListener('name', this.#storeListener)
     addListener('bounty', this.#storeListener)
+    addListener('footerTitle', this.#storeListener)
+    addListener('footerText', this.#storeListener)
     addListener('nameSpacing', this.#storeListener)
     addListener('bountySpacing', this.#storeListener)
     addListener('shadow', this.#storeListener)
@@ -141,6 +153,9 @@ class EditPanel extends HTMLElement {
 
     this.#nameInput.value = store.name
     this.#bountyInput.value = store.bounty.toString()
+
+    this.#footerTitleInput.value = store.footerTitle
+    this.#footerTextInput.value = store.footerText
 
     this.#nameSpacingSlider.value = store.nameSpacing.toString()
     this.#bountySpacingSlider.value = store.bountySpacing.toString()
@@ -160,6 +175,15 @@ class EditPanel extends HTMLElement {
     this.#bountyInput.addEventListener(
       'input',
       () => (store.bounty = this.#bountyInput.value)
+    )
+    
+    this.#footerTitleInput.addEventListener(
+      'input',
+      () => (store.footerTitle = this.#footerTitleInput.value)
+    )
+    this.#footerTextInput.addEventListener(
+      'input',
+      () => (store.footerText = this.#footerTextInput.value)
     )
 
     this.#nameSpacingSlider.addEventListener(
@@ -213,6 +237,8 @@ class EditPanel extends HTMLElement {
     window.removeEventListener('pointerdown', this.#pointerdownListener)
     removeListener('name', this.#storeListener)
     removeListener('bounty', this.#storeListener)
+    removeListener('footerTitle', this.#storeListener)
+    removeListener('footerText', this.#storeListener)
     removeListener('shadow', this.#storeListener)
     removeListener('blur', this.#storeListener)
     removeListener('saturate', this.#storeListener)

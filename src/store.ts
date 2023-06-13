@@ -12,6 +12,8 @@ export interface AppState extends FilterState {
   photoUrl: string
   name: string
   bounty: string | number
+  footerTitle: string
+  footerText: string
   filter: string
   shadow: number
   nameSpacing: number
@@ -32,6 +34,8 @@ const DEFAULT_STATE: AppState = {
   photoUrl: '',
   name: '',
   bounty: '',
+  footerTitle: '',
+  footerText: '',
   nameSpacing: 0,
   bountySpacing: 1,
   filter: '',

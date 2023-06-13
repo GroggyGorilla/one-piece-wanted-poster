@@ -90,6 +90,8 @@ class App extends HTMLElement {
           break
         case 'name':
         case 'bounty':
+        case 'footerTitle':
+        case 'footerText':
         case 'shadow':
         case 'filter':
           this.#setWantedPosterAttributes({ [key]: value.toString() })
@@ -196,6 +198,8 @@ class App extends HTMLElement {
     addListener('photoUrl', this.#storeListener)
     addListener('name', this.#storeListener)
     addListener('bounty', this.#storeListener)
+    addListener('footerTitle', this.#storeListener)
+    addListener('footerText', this.#storeListener)
     addListener('nameSpacing', this.#storeListener)
     addListener('bountySpacing', this.#storeListener)
     addListener('shadow', this.#storeListener)
@@ -306,6 +310,8 @@ class App extends HTMLElement {
     removeListener('photoUrl', this.#storeListener)
     removeListener('name', this.#storeListener)
     removeListener('bounty', this.#storeListener)
+    removeListener('footerText', this.#storeListener)
+    removeListener('footerTitle', this.#storeListener)
     removeListener('shadow', this.#storeListener)
     removeListener('filter', this.#storeListener)
   }

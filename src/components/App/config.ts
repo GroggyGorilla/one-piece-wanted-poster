@@ -9,8 +9,10 @@ export const WARCRIMINAL_POSTER = {
   grayscale: 12,
   saturate: 80,
   sepia: 15,
-  name: 'PUTLER',
+  name: 'Loha',
   bounty: 'War Criminal',
+  footerTitle: '',
+  footerText: '',
   nameSpacing: 0,
   bountySpacing: 1,
   photoUrls: [
